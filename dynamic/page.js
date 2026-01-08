@@ -14,8 +14,6 @@ export default async function HybridPage() {
 
       <h2>Random Comment:</h2>
       <p>{data.body}</p>
-
-      <p>just for fun testinggggg</p>
     </div>
   );
 }
