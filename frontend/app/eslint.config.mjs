@@ -10,12 +10,14 @@ export default [
       prettier: prettierPlugin,
     },
     rules: {
+      
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
       "no-console": "warn",
       "semi": ["error", "always"],
       "quotes": ["error", "double"],
       "prettier/prettier": "error",
+
     },
   },
   prettierConfig, // This turns off rules that conflict with Prettier
