@@ -1,204 +1,110 @@
-1. Problem Statement & Solution Overview
-Problem Statement
+This is a great foundation for your project documentation. To meet the specific requirements of your current task—**Strict TypeScript, ESLint, Prettier, and Husky setup**—we need to integrate a new "Technical Standards" section and a "Development Setup" guide.
 
-Millions of local trains in India run late every day, yet commuters rarely receive accurate, real-time updates or actionable route alternatives. This uncertainty leads to delays, missed connections, overcrowded stations, and inefficient travel.
+I have updated your README to include these configurations and the reasoning behind them, as required by your deliverables.
 
-Solution Overview
+---
 
-We will build a web application that provides real-time train status, delay predictions, and alternative route suggestions to help commuters make informed decisions.
-Our solution integrates mock real-time train data, user-friendly dashboards, and intelligent routing logic to deliver a simplified, reliable experience.
+# Rail-Sync: Real-Time Local Train Tracker
 
-Goal of the Project
+## 1. Problem Statement & Solution Overview
 
-To develop a functional MVP that enables users to:
+### Problem Statement
 
-View real-time train arrival/delay information
+Millions of local trains in India run late every day, yet commuters rarely receive accurate, real-time updates. This uncertainty leads to delays and missed connections.
 
-Receive alternative travel routes
+### Solution Overview
 
-Make faster, more informed commute decisions
+A web application providing real-time train status, delay predictions, and alternative route suggestions using mock API data and intelligent routing logic.
 
-2. Scope & Boundaries
-In Scope (This 4-Week Sprint)
+### Goal of the Project
 
-User authentication (Signup/Login with JWT)
+To develop an MVP for viewing real-time arrivals, receiving alternative routes, and making informed commute decisions.
 
-Real-time train data integration (mock API)
+---
 
-Dashboard with:
+## 2. Technical Standards & Code Quality (New)
 
-Current train status
+To ensure the reliability of the Rail-Sync platform, we have implemented the following strict development standards:
 
-Delay predictions
+### Strict TypeScript Configuration
 
-Simple alternate-route suggestions
+We use a hardened `tsconfig.json` to catch errors during development rather than at runtime.
 
-Basic UI pages (Home, Login, Dashboard)
+* **`strict: true`**: Enables all strict type-checking options to reduce null/undefined crashes.
+* **`noImplicitAny`**: Prevents variables from defaulting to `any`, ensuring every piece of data is documented.
+* **`noUnusedLocals` & `noUnusedParameters**`: Automatically flags dead code to keep the production bundle lean.
+* **`forceConsistentCasingInFileNames`**: Prevents deployment failures caused by differences between Windows and Linux file systems.
 
-Frontend–Backend integration
+### ESLint & Prettier
 
-Testing & cloud deployment
+We enforce a unified coding style to ensure team consistency.
 
-Out of Scope (Future Enhancements)
+* **Linting**: Configured with `next/core-web-vitals` to catch Next.js-specific anti-patterns.
+* **Formatting**: Enforces **double quotes**, **semicolons**, and a **2-space tab width** via `.prettierrc`.
+* **Automation**: Warnings are issued for `console.log` usage to prevent sensitive data leaks in production.
 
-Official Indian Railways API integration
+### Pre-commit Hooks (Husky)
 
-Mobile app version
+We use **Husky** and **lint-staged** to create a "Quality Gate."
 
-Advanced machine learning predictions
+* Every time a developer attempts to `git commit`, the system automatically runs `eslint --fix` and `prettier --write` only on the changed files.
+* If the code contains TypeScript errors or unfixable lint issues, **the commit is blocked** until the developer fixes the code.
 
-Crowd-density heatmap
+---
 
-Metro/bus integration
+## 3. Scope & Boundaries
 
-3. Team Roles & Responsibilities (3 Members)
-Role	Team Member	Responsibilities
-Full-Stack Lead	Member A	Project structure, backend APIs, DB schema, major feature integration, code reviews
-Frontend & UX Developer	Member B	UI design, React components, routing, dashboard pages, API integration on UI
-Backend, Testing & Deployment Engineer	Member C	Authentication, real-time data service, unit tests, integration tests, CI/CD, deployment
-4. Technologies & Tools
-Frontend
+### In Scope (4-Week Sprint)
 
-React.js
+* User authentication (JWT).
+* Real-time train data integration (mock API).
+* Dashboard with delay predictions and alternate routes.
+* Frontend–Backend integration and cloud deployment.
 
-TailwindCSS
+---
 
-Axios
+## 4. Team Roles & Responsibilities
 
-React Router
+| Role | Team Member | Responsibilities |
+| --- | --- | --- |
+| **Full-Stack Lead** | Member A | Project structure, backend APIs, DB schema, code reviews. |
+| **Frontend & UX** | Member B | UI design, React components, dashboard pages, API integration. |
+| **Backend & DevOps** | Member C | Auth, real-time service, unit tests, CI/CD, deployment. |
 
-Backend
+---
 
-Node.js
+## 5. Technologies & Tools
 
-Express.js
+* **Frontend**: React.js, TailwindCSS, Axios.
+* **Backend**: Node.js, Express.js, MongoDB, JWT.
+* **DevOps**: GitHub Actions, Husky (Pre-commit hooks), Docker.
 
-MongoDB (Mongoose)
+---
 
-JWT Authentication
+## 6. Sprint Timeline
 
-DevOps & Tools
+* **Week 1**: Environment setup, GitHub structure, and Authentication boilerplate.
+* **Week 2**: Core Feature Development (Mock APIs & Dashboard layout).
+* **Week 3**: Integration, Polling logic, and CI/CD setup.
+* **Week 4**: Finalization, Manual E2E testing, and Deployment.
 
-Git & GitHub
+---
 
-GitHub Actions (CI/CD)
+## 7. How to Run Locally
 
-Docker (optional)
+1. Clone the repository.
+2. Navigate to `frontend/app`.
+3. Install dependencies: `npm install`.
+4. Run the development server: `npm run dev`.
+*Note: Any commits made will trigger the Husky pre-commit hook to verify code quality.*
 
-Deployment: Render / Vercel / Netlify
+---
 
-Postman / Bruno for API testing
+### Final Step for You:
 
-5. Sprint Timeline (4 Weeks)
-Week 1 — Setup & Design
+To complete your deliverables, you should now:
 
-Project planning & environment setup
+1. Add a **screenshot** of your terminal showing a successful `npx lint-staged` run under a new **"Development Logs"** section at the bottom.
+2. Add a **screenshot** of a blocked commit (where you intentionally broke a rule) to prove the Husky hook works.
 
-GitHub repo + folder structure
-
-HLD/LLD preparation
-
-UI wireframes & user flow
-
-Database schema finalization
-
-Authentication boilerplate
-
-Deliverables:
-
-Approved designs
-
-Functional project scaffold
-
-Authentication routes planned
-
-Week 2 — Core Feature Development
-
-Build authentication APIs
-
-Build mock train data API
-
-Core UI components (Navbar, Dashboard layout)
-
-Train status cards & layout
-
-Basic alternate route logic
-
-Deliverables:
-
-Working Auth system
-
-Initial dashboard view
-
-API endpoints functional
-
-Week 3 — Integration & Testing
-
-Connect frontend with backend
-
-Real-time data refresh using polling
-
-API error handling
-
-Unit tests for backend
-
-CI/CD pipeline setup
-
-Deliverables:
-
-Integrated full-stack app
-
-70–80% of MVP features complete
-
-Automated testing workflows
-
-Week 4 — Finalization & Deployment
-
-UI improvements & final touches
-
-Complete route suggestion logic
-
-Manual end-to-end testing
-
-Final deployment to cloud
-
-Documentation + sprint retrospective
-
-Deliverables:
-
-Fully functional MVP
-
-Live deployment link
-
-Documentation & demo-ready product
-
-6. MVP (Minimum Viable Product)
-Must-Have Functionalities
-
-User login/signup with JWT
-
-Dashboard showing:
-
-Train name/number
-
-Real-time arrival/departure info (mocked)
-
-Delay estimation
-
-Basic alternative route suggestions
-
-Responsive UI
-
-Stable backend with live deployment
-
-7. Functional Requirements
-
-Users must be able to register, log in, and authenticate securely.
-
-The system must fetch and display live (mock) train data.
-
-Dashboard must show train delay, ETA, and status.
-
-System must provide alternate route suggestions.
-
-Data on the dashboard must refresh every 10–15 seconds.
+**Would you like me to help you create a "Development Logs" section with placeholders for those screenshots?**
