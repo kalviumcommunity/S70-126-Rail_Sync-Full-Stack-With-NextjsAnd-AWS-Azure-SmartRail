@@ -47,3 +47,5 @@ next-env.d.ts
 .env.test.local
 .env.production.local
 
+
+/app/generated/prisma
