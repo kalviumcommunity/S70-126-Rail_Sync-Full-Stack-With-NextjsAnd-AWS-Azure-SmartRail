@@ -1,204 +1,77 @@
-1. Problem Statement & Solution Overview
-Problem Statement
+🚉 RailFlow: Real-Time Train Intelligence
+Transforming the Indian Commute with Real-Time Data & Intelligent Routing.
 
+📖 Project Overview
+Problem Statement
 Millions of local trains in India run late every day, yet commuters rarely receive accurate, real-time updates or actionable route alternatives. This uncertainty leads to delays, missed connections, overcrowded stations, and inefficient travel.
 
-Solution Overview
+Solution
+RailFlow is a web application providing real-time train status, delay predictions, and alternative route suggestions. By integrating mock real-time data with intelligent routing logic, we help commuters make faster, more informed decisions.
 
-We will build a web application that provides real-time train status, delay predictions, and alternative route suggestions to help commuters make informed decisions.
-Our solution integrates mock real-time train data, user-friendly dashboards, and intelligent routing logic to deliver a simplified, reliable experience.
+🎯 Project Goals (MVP)
+Live Feed: View real-time train arrival/delay information.
 
-Goal of the Project
+Smart Routing: Receive alternative travel suggestions when delays occur.
 
-To develop a functional MVP that enables users to:
+User Accounts: Secure authentication for personalized commute tracking.
 
-View real-time train arrival/delay information
+Speed: 15-second data refresh intervals for "Live" accuracy.
 
-Receive alternative travel routes
+🛠 Tech Stack
+Frontend: React.js, TailwindCSS, Lucide Icons, Axios.
 
-Make faster, more informed commute decisions
+Backend: Node.js, Express.js.
 
-2. Scope & Boundaries
-In Scope (This 4-Week Sprint)
+Database: MongoDB (Mongoose).
 
-User authentication (Signup/Login with JWT)
+Security: JWT Authentication, Bcrypt.js.
 
-Real-time train data integration (mock API)
+Deployment: Vercel (Frontend), Render (Backend).
 
-Dashboard with:
+🏗 High-Level Architecture
+The application uses a modern MERN stack where the backend serves a Mock Data Engine to simulate live train movements across the Indian Railways network.
 
-Current train status
+📅 4-Week Sprint Roadmap
+Week 1: Foundation & Architecture
+Goal: Establish the "Contract" between Frontend and Backend.
 
-Delay predictions
+Backend: Setup Node/Express, MongoDB schema, and JWT Auth.
 
-Simple alternate-route suggestions
+Frontend: Wireframes in Figma, React project scaffold, Tailwind integration.
 
-Basic UI pages (Home, Login, Dashboard)
+DevOps: GitHub repo setup with branch protection.
 
-Frontend–Backend integration
+Week 2: Core Feature Development
+Goal: Getting data into the system and onto the screen.
 
-Testing & cloud deployment
+Backend: Mock Train Data Generator, CRUD for Train Status, Search/Filter API.
 
-Out of Scope (Future Enhancements)
+Frontend: Dashboard layout, Train Status Cards, Auth State management.
 
-Official Indian Railways API integration
+Logic: Basic delay prediction algorithm (Randomized fluctuation).
 
-Mobile app version
+Week 3: Integration & "Real-Time" Logic
+Goal: Connecting the system and simulating live updates.
 
-Advanced machine learning predictions
+Backend: Alternate Route Logic, API error handling, Unit testing.
 
-Crowd-density heatmap
+Frontend: API Integration (Axios), Polling implementation (15s intervals), Mobile responsiveness.
 
-Metro/bus integration
+DevOps: CI/CD pipeline setup via GitHub Actions.
 
-3. Team Roles & Responsibilities (3 Members)
-Role	Team Member	Responsibilities
-Full-Stack Lead	Member A	Project structure, backend APIs, DB schema, major feature integration, code reviews
-Frontend & UX Developer	Member B	UI design, React components, routing, dashboard pages, API integration on UI
-Backend, Testing & Deployment Engineer	Member C	Authentication, real-time data service, unit tests, integration tests, CI/CD, deployment
-4. Technologies & Tools
-Frontend
+Week 4: Polish & Launch
+Goal: Ironing out bugs and going live.
 
-React.js
+Testing: End-to-End manual testing, bug squashing.
 
-TailwindCSS
+Frontend: Loading states, Toast notifications, UI/UX final polish.
 
-Axios
+Deployment: Final push to Render/Vercel and project documentation.
 
-React Router
 
-Backend
 
-Node.js
 
-Express.js
-
-MongoDB (Mongoose)
-
-JWT Authentication
-
-DevOps & Tools
-
-Git & GitHub
-
-GitHub Actions (CI/CD)
-
-Docker (optional)
-
-Deployment: Render / Vercel / Netlify
-
-Postman / Bruno for API testing
-
-5. Sprint Timeline (4 Weeks)
-Week 1 — Setup & Design
-
-Project planning & environment setup
-
-GitHub repo + folder structure
-
-HLD/LLD preparation
-
-UI wireframes & user flow
-
-Database schema finalization
-
-Authentication boilerplate
-
-Deliverables:
-
-Approved designs
-
-Functional project scaffold
-
-Authentication routes planned
-
-Week 2 — Core Feature Development
-
-Build authentication APIs
-
-Build mock train data API
-
-Core UI components (Navbar, Dashboard layout)
-
-Train status cards & layout
-
-Basic alternate route logic
-
-Deliverables:
-
-Working Auth system
-
-Initial dashboard view
-
-API endpoints functional
-
-Week 3 — Integration & Testing
-
-Connect frontend with backend
-
-Real-time data refresh using polling
-
-API error handling
-
-Unit tests for backend
-
-CI/CD pipeline setup
-
-Deliverables:
-
-Integrated full-stack app
-
-70–80% of MVP features complete
-
-Automated testing workflows
-
-Week 4 — Finalization & Deployment
-
-UI improvements & final touches
-
-Complete route suggestion logic
-
-Manual end-to-end testing
-
-Final deployment to cloud
-
-Documentation + sprint retrospective
-
-Deliverables:
-
-Fully functional MVP
-
-Live deployment link
-
-Documentation & demo-ready product
-
-6. MVP (Minimum Viable Product)
-Must-Have Functionalities
-
-User login/signup with JWT
-
-Dashboard showing:
-
-Train name/number
-
-Real-time arrival/departure info (mocked)
-
-Delay estimation
-
-Basic alternative route suggestions
-
-Responsive UI
-
-Stable backend with live deployment
-
-7. Functional Requirements
-
-Users must be able to register, log in, and authenticate securely.
-
-The system must fetch and display live (mock) train data.
-
-Dashboard must show train delay, ETA, and status.
-
-System must provide alternate route suggestions.
-
-Data on the dashboard must refresh every 10–15 seconds.
+Role,Responsibility
+Full-Stack Lead,"Project structure, Backend APIs, DB Schema, Major feature integration."
+Frontend & UX Developer,"UI Design, React components, Dashboard pages, UI-side API integration."
+Backend & DevOps Engineer,"Authentication, Mock data service, Testing, CI/CD, Cloud deployment."
