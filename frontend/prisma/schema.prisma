@@ -1,48 +1,23 @@
-// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-}
-
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  name      String?
-  role      String   @default("USER")
-  createdAt DateTime @default(now())
-}
-
-model Train {
-  id            Int      @id @default(autoincrement())
-  trainNumber   String   @unique 
-  name          String   
-  currentStatus String   @default("On Time")
-  delayMinutes  Int      @default(0)
-  lastUpdated   DateTime @updatedAt
-  schedule      Stop[]
-}
-
-model Station {
-  id        Int      @id @default(autoincrement())
-  code      String   @unique 
+  id        Int       @id @default(autoincrement())
   name      String
-  stops     Stop[]
+  email     String    @unique
+  createdAt DateTime  @default(now())
+  projects  Project[]
 }
 
-model Stop {
-  id            Int      @id @default(autoincrement())
-  trainId       Int
-  stationId     Int
-  arrivalTime   DateTime
-  departureTime DateTime
-  platform      Int?
-  sequenceOrder Int      // e.g. 1, 2, 3 to know the order of stops
-
-  train   Train   @relation(fields: [trainId], references: [id])
-  station Station @relation(fields: [stationId], references: [id])
+model Project {
+  id        Int       @id @default(autoincrement())
+  name      String
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
 }
