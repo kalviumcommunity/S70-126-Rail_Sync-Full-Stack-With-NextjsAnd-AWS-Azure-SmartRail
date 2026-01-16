@@ -1,12 +1,27 @@
-import { PrismaClient } from '@prisma/client'
-import 'dotenv/config'
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import "dotenv/config";
 
-const prisma = new PrismaClient({
-  accelerateUrl: process.env.DATABASE_URL
-} as any)
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL!,
+});
+
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  // 1. Create Stations
+  console.log('Start seeding ...')
+
+  // 1. Create a User (Passenger) - Needed for the Transaction assignment!
+  const user = await prisma.user.upsert({
+    where: { email: 'passenger@example.com' },
+    update: {},
+    create: {
+      email: 'passenger@example.com',
+      name: 'Rahul Kumar',
+    },
+  })
+
+  // 2. Create Stations
   const stationA = await prisma.station.upsert({
     where: { code: 'NDLS' },
     update: {},
@@ -25,12 +40,19 @@ async function main() {
     create: { name: 'Howrah Jn', code: 'HWH' },
   })
 
-  // 2. Create a Train with a Schedule (Stops)
-  const train = await prisma.train.create({
-    data: {
+  // 3. Create a Train with Schedule AND Inventory
+  // We use upsert on trainNumber to avoid duplicates if you run seed twice
+  const train = await prisma.train.upsert({
+    where: { trainNumber: '12302' },
+    update: {
+      // If train exists, reset seats to 50 for testing transactions
+      availableSeats: 50 
+    },
+    create: {
       trainNumber: '12302',
       name: 'Kolkata Rajdhani',
       currentStatus: 'On Time',
+      availableSeats: 50, // <--- CRITICAL: This is your 'Stock'
       schedule: {
         create: [
           {
@@ -56,7 +78,8 @@ async function main() {
     }
   })
 
-  console.log({ train })
+  console.log(`Created User: ${user.name}`)
+  console.log(`Created Train: ${train.name} with ${train.availableSeats} seats`)
 }
 
 main()
