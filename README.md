@@ -75,3 +75,6 @@ Role,Responsibility
 Full-Stack Lead,"Project structure, Backend APIs, DB Schema, Major feature integration."
 Frontend & UX Developer,"UI Design, React components, Dashboard pages, UI-side API integration."
 Backend & DevOps Engineer,"Authentication, Mock data service, Testing, CI/CD, Cloud deployment."
+
+
+<!-- npx prisma migrate dev --name init -->
