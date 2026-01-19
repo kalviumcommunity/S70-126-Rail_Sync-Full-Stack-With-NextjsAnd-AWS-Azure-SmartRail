@@ -1,4 +1,4 @@
-🚉 RailFlow: Real-Time Train Intelligence
+🚉 SmaetRail: Real-Time Train Intelligence
 Transforming the Indian Commute with Real-Time Data & Intelligent Routing.
 
 📖 Project Overview
