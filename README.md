@@ -1,4 +1,4 @@
-🚉 SmaetRail: Real-Time Train Intelligence
+🚉 SmartRail: Real-Time Train Intelligence
 Transforming the Indian Commute with Real-Time Data & Intelligent Routing.
 
 📖 Project Overview
